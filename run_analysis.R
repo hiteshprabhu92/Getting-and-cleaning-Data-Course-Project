@@ -1,13 +1,10 @@
-x_train = read.csv("UCI HAR Dataset/train/X_train.txt", sep="", header=FALSE)
-y_train = read.csv("UCI HAR Dataset/train/Y_train.txt", sep="", header=FALSE)
-subject_train = read.csv("UCI HAR Dataset/train/subject_train.txt", sep="", header=FALSE)
-training = rbind(x_train,y_train,subject_train)
+training = read.csv("UCI HAR Dataset/train/X_train.txt", sep="", header=FALSE)
+training[,562] = read.csv("UCI HAR Dataset/train/Y_train.txt", sep="", header=FALSE)
+training[,563] = read.csv("UCI HAR Dataset/train/subject_train.txt", sep="", header=FALSE)
 
-x_test = read.csv("UCI HAR Dataset/test/X_test.txt", sep="", header=FALSE)
-y_test = read.csv("UCI HAR Dataset/test/Y_test.txt", sep="", header=FALSE)
-subject_test = read.csv("UCI HAR Dataset/test/subject_test.txt", sep="", header=FALSE)
-testing = rbind(x_test,y_test,subject_test)
-
+testing = read.csv("UCI HAR Dataset/test/X_test.txt", sep="", header=FALSE)
+testing[,562] = read.csv("UCI HAR Dataset/test/Y_test.txt", sep="", header=FALSE)
+testing[,563] = read.csv("UCI HAR Dataset/test/subject_test.txt", sep="", header=FALSE)
 activityLabels = read.csv("UCI HAR Dataset/activity_labels.txt", sep="", header=FALSE)
 
 # Read features and make the feature names better suited for R with some substitutions
@@ -44,4 +41,4 @@ tidy = aggregate(allData, by=list(activity = allData$activity, subject=allData$s
 # Remove the subject and activity column, since a mean of those has no use
 tidy[,90] = NULL
 tidy[,89] = NULL
-write.table(tidy, "tidyDataSettxt", sep="\t")
+write.table(tidy, "tidyDataSet.txt", sep="\t")

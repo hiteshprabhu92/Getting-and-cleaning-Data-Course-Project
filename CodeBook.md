@@ -10,6 +10,5 @@ The script `run_analysis.R`performs the 5 steps described in the course project'
 
 # Variables
 
-* `x_train`, `y_train`, `x_test`, `y_test`, `subject_train` and `subject_test` contain the data from the downloaded files.
-* `testing` and `training` merge the previous datasets to further analysis.
+* `testing` and `training` merge the previous `x_train`, `y_train`, `x_test`, `y_test`, `subject_train` and `subject_test` columns to further analysis.
 * Finally, `averages_data` contains the relevant averages which will be later stored in a `.txt` file.
